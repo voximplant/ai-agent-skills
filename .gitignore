@@ -1,0 +1,23 @@
+# Local credentials and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*_private.json
+voximplant*.json
+*service-account*.json
+*credentials*.json
+
+# Local logs and artifacts
+*.log
+recordings/
+logs/
+tmp/
+temp/
+
+# Dependency/cache folders
+node_modules/
+.cache/
+.DS_Store
+Thumbs.db
