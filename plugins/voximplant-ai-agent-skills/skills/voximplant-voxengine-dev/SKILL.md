@@ -47,7 +47,7 @@ Use this skill together with `voximplant-management-api` when debugging real cal
 
 If the user does not have `voximplant-management-api`, ask them to provide it or ask permission to fetch the full public skill package after publication:
 
-- `https://github.com/voximplant/voximplant-ai-agent-skills`
+- `https://github.com/voximplant/ai-agent-skills`
 - the Voximplant docs skill catalog page when available
 
 ## Instructions For Agents Reading This Skill

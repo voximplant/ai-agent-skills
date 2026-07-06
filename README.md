@@ -9,7 +9,7 @@ Use them when you want an agent to write VoxEngine scenarios, automate Voximplan
 
 | Client                     | Recommended path                                               | Status                   |
 | -------------------------- | -------------------------------------------------------------- | ------------------------ |
-| Cursor                     | [Install from Cursor Marketplace or local plugin](#install-in-cursor) | Marketplace coming soon  |
+| Cursor                     | [Install from cursor.directory or local plugin](#install-in-cursor)   | Listed on cursor.directory; local plugin available |
 | Claude Code                | [Add this repository as a plugin marketplace](#install-in-claude-code) | Available from this repo |
 | Codex                      | [Add this repository as a plugin marketplace](#install-in-codex)       | Available from this repo |
 | Manual setup (only skills) | [Copy standalone skill folders](#manual-install)                      | Available from this repo |
@@ -43,28 +43,34 @@ Many workflows need both skills. `voximplant-voxengine-dev` handles scenario cod
 
 ## Install In Cursor
 
-Cursor Marketplace publication is planned after review. Once approved, this README will link to the marketplace listing.
+The official Cursor Marketplace is currently closed to new submissions. Cursor recommends [cursor.directory](https://cursor.directory), a community-run directory that auto-detects plugins from a public GitHub repository.
 
-For now, choose one of these paths.
+### Cursor Directory (Community)
+
+Find **Voximplant AI Agent Skills** on [cursor.directory](https://cursor.directory) and follow the install instructions shown there.
+
+If it is not listed yet, anyone can add it: go to [cursor.directory/plugins/new](https://cursor.directory/plugins/new), sign in with GitHub or Google, paste `https://github.com/voximplant/ai-agent-skills`, and submit. The repository already ships the `.cursor-plugin/marketplace.json`, `plugin.json`, and `skills/*/SKILL.md` layout that cursor.directory auto-detects.
+
+For other install paths, see below.
 
 ### Local Plugin Testing
 
-Use this when you want the full Cursor plugin package before the Marketplace listing is approved.
+Use this when you want the full Cursor plugin package installed directly, without going through cursor.directory.
 
 macOS/Linux:
 
 ```bash
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 mkdir -p ~/.cursor/plugins/local
-ln -s "$(pwd)/voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills" ~/.cursor/plugins/local/voximplant-ai-agent-skills
+ln -s "$(pwd)/ai-agent-skills/plugins/voximplant-ai-agent-skills" ~/.cursor/plugins/local/voximplant-ai-agent-skills
 ```
 
 Windows PowerShell:
 
 ```powershell
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.cursor\plugins\local"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills" "$env:USERPROFILE\.cursor\plugins\local\voximplant-ai-agent-skills"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills" "$env:USERPROFILE\.cursor\plugins\local\voximplant-ai-agent-skills"
 ```
 
 After copying or linking the plugin, run **Developer: Reload Window** in Cursor.
@@ -87,14 +93,14 @@ There are two command surfaces:
 Inside Claude Code:
 
 ```text
-/plugin marketplace add voximplant/voximplant-ai-agent-skills
+/plugin marketplace add voximplant/ai-agent-skills
 /plugin install voximplant-ai-agent-skills@voximplant
 ```
 
 From PowerShell, macOS Terminal, or a Linux shell:
 
 ```bash
-claude plugin marketplace add voximplant/voximplant-ai-agent-skills
+claude plugin marketplace add voximplant/ai-agent-skills
 claude plugin install voximplant-ai-agent-skills@voximplant
 ```
 
@@ -121,13 +127,13 @@ To install in Cowork:
 5. Enter:
 
    ```text
-   voximplant/voximplant-ai-agent-skills
+   voximplant/ai-agent-skills
    ```
 
    If GitHub shorthand is not accepted, use the full repository URL:
 
    ```text
-   https://github.com/voximplant/voximplant-ai-agent-skills
+   https://github.com/voximplant/ai-agent-skills
    ```
 
 6. Open the added marketplace.
@@ -142,7 +148,7 @@ Cowork does not provide the same local terminal and git workflow as Claude Code.
 Add this repository as a plugin marketplace:
 
 ```text
-codex plugin marketplace add voximplant/voximplant-ai-agent-skills
+codex plugin marketplace add voximplant/ai-agent-skills
 ```
 
 If this command fails, see [Codex Troubleshooting](#codex-troubleshooting).
@@ -218,19 +224,19 @@ Common destinations:
 macOS/Linux:
 
 ```bash
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 mkdir -p ~/.cursor/skills
-cp -R voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-voxengine-dev ~/.cursor/skills/
-cp -R voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-management-api ~/.cursor/skills/
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-voxengine-dev ~/.cursor/skills/
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-management-api ~/.cursor/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.cursor\skills"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-voxengine-dev" "$env:USERPROFILE\.cursor\skills\"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-management-api" "$env:USERPROFILE\.cursor\skills\"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-voxengine-dev" "$env:USERPROFILE\.cursor\skills\"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-management-api" "$env:USERPROFILE\.cursor\skills\"
 ```
 
 ### Claude Code Standalone Skills
@@ -238,19 +244,19 @@ Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agen
 macOS/Linux:
 
 ```bash
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 mkdir -p ~/.claude/skills
-cp -R voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-voxengine-dev ~/.claude/skills/
-cp -R voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-management-api ~/.claude/skills/
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-voxengine-dev ~/.claude/skills/
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-management-api ~/.claude/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-voxengine-dev" "$env:USERPROFILE\.claude\skills\"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-management-api" "$env:USERPROFILE\.claude\skills\"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-voxengine-dev" "$env:USERPROFILE\.claude\skills\"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-management-api" "$env:USERPROFILE\.claude\skills\"
 ```
 
 ### Codex Standalone Skills
@@ -258,19 +264,19 @@ Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agen
 macOS/Linux:
 
 ```bash
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 mkdir -p ~/.agents/skills
-cp -R voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-voxengine-dev ~/.agents/skills/
-cp -R voximplant-ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-management-api ~/.agents/skills/
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-voxengine-dev ~/.agents/skills/
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills/skills/voximplant-management-api ~/.agents/skills/
 ```
 
 Windows PowerShell:
 
 ```powershell
-git clone https://github.com/voximplant/voximplant-ai-agent-skills.git
+git clone https://github.com/voximplant/ai-agent-skills.git
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.agents\skills"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-voxengine-dev" "$env:USERPROFILE\.agents\skills\"
-Copy-Item -Recurse -Force "voximplant-ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-management-api" "$env:USERPROFILE\.agents\skills\"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-voxengine-dev" "$env:USERPROFILE\.agents\skills\"
+Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills\skills\voximplant-management-api" "$env:USERPROFILE\.agents\skills\"
 ```
 
 Reload or restart the client if the skills do not appear immediately.
