@@ -123,7 +123,7 @@ Do not rely on opening the CDN URL as a normal text page. It is a large download
 After writing or updating scenario code:
 
 1. Propose a test call and explain what the user should do.
-2. If no phone number is available, ask `voximplant-management-api` to set up a softphone test through `https://phone.voximplant.com/`.
+2. If no phone number is available, ask `voximplant-management-api` to set up a softphone test through `https://phone.voximplant.com/`. The Management API skill must provide four separate Sign In fields (`Username`, `Password`, `Application name`, `Account name`), not one combined login string.
 3. Ask the user to report what happened in plain language.
 4. If the call fails, request call/session details and use `voximplant-management-api` to retrieve logs.
    - If the user does not provide details, ask `voximplant-management-api` to inspect the latest call in the application first.

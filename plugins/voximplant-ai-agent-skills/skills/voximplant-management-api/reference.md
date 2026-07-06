@@ -135,7 +135,14 @@ Use `https://phone.voximplant.com/` when the user needs a quick manual test with
 2. Generate a strong temporary password.
 3. Bind or confirm a routing path that lets the user reach the scenario.
 4. Store test credentials in an ignored local `.env` only after explicit approval, or print them clearly for the user to copy into the softphone.
-5. Give login instructions and the expected call flow. In the `Enter destination` field, tell the user to enter the real destination when one is needed; for a call inside the same application, entering any simple value such as `1` is enough.
+5. Give login instructions and the expected call flow.
+   - The softphone Sign In form requires **four separate fields**, not one combined login string:
+     - `Username` → application user name
+     - `Password` → user password
+     - `Application name` → Voximplant application name
+     - `Account name` → Voximplant account name
+   - Present all four values explicitly so the user can copy each one into the matching input. Do **not** use concatenated formats such as `user@app/account`, `user@account/app`, or SIP-style URIs.
+   - In the `Enter destination` field, tell the user to enter the real destination when one is needed; for a call inside the same application, entering any simple value such as `1` is enough.
 6. After the user tests, retrieve logs if behavior differs from expected.
 
 ## Number Verification
