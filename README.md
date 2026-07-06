@@ -9,7 +9,7 @@ Use them when you want an agent to write VoxEngine scenarios, automate Voximplan
 
 | Client                     | Recommended path                                               | Status                   |
 | -------------------------- | -------------------------------------------------------------- | ------------------------ |
-| Cursor                     | [Install from cursor.directory or local plugin](#install-in-cursor)   | Listed on cursor.directory; local plugin available |
+| Cursor                     | [Install the local plugin, or find it on cursor.directory](#install-in-cursor) | Available from this repo; listed on cursor.directory |
 | Claude Code                | [Add this repository as a plugin marketplace](#install-in-claude-code) | Available from this repo |
 | Codex                      | [Add this repository as a plugin marketplace](#install-in-codex)       | Available from this repo |
 | Manual setup (only skills) | [Copy standalone skill folders](#manual-install)                      | Available from this repo |
@@ -43,26 +43,16 @@ Many workflows need both skills. `voximplant-voxengine-dev` handles scenario cod
 
 ## Install In Cursor
 
-The official Cursor Marketplace is currently closed to new submissions. Cursor recommends [cursor.directory](https://cursor.directory), a community-run directory that auto-detects plugins from a public GitHub repository.
+### Local Plugin Install
 
-### Cursor Directory (Community)
-
-Find **Voximplant AI Agent Skills** on [cursor.directory](https://cursor.directory) and follow the install instructions shown there.
-
-If it is not listed yet, anyone can add it: go to [cursor.directory/plugins/new](https://cursor.directory/plugins/new), sign in with GitHub or Google, paste `https://github.com/voximplant/ai-agent-skills`, and submit. The repository already ships the `.cursor-plugin/marketplace.json`, `plugin.json`, and `skills/*/SKILL.md` layout that cursor.directory auto-detects.
-
-For other install paths, see below.
-
-### Local Plugin Testing
-
-Use this when you want the full Cursor plugin package installed directly, without going through cursor.directory.
+Installs the full plugin package (both skills, plus plugin metadata) directly from this repository.
 
 macOS/Linux:
 
 ```bash
 git clone https://github.com/voximplant/ai-agent-skills.git
 mkdir -p ~/.cursor/plugins/local
-ln -s "$(pwd)/ai-agent-skills/plugins/voximplant-ai-agent-skills" ~/.cursor/plugins/local/voximplant-ai-agent-skills
+cp -R ai-agent-skills/plugins/voximplant-ai-agent-skills ~/.cursor/plugins/local/voximplant-ai-agent-skills
 ```
 
 Windows PowerShell:
@@ -73,7 +63,18 @@ New-Item -ItemType Directory -Force "$env:USERPROFILE\.cursor\plugins\local"
 Copy-Item -Recurse -Force "ai-agent-skills\plugins\voximplant-ai-agent-skills" "$env:USERPROFILE\.cursor\plugins\local\voximplant-ai-agent-skills"
 ```
 
-After copying or linking the plugin, run **Developer: Reload Window** in Cursor.
+Then restart Cursor, or run **Developer: Reload Window**. If the plugin does not appear under Settings → Plugins, make sure "Include third-party Plugins, Skills, and other configs" is enabled; on a Cursor Teams/Enterprise workspace, an admin may need to enable "Allow Local Plugin Imports".
+
+### Cursor Directory
+
+Find [Voximplant on cursor.directory](https://cursor.directory/plugins/voximplant). Each skill card has a **Copy** button:
+
+1. Click **Copy** on a skill card.
+2. Create `~/.cursor/skills/<skill-name>/SKILL.md` (or `.cursor/skills/<skill-name>/SKILL.md` for a single project), using the skill name shown on the card (`voximplant-management-api` or `voximplant-voxengine-dev`).
+3. Paste the copied content and save the file.
+4. Repeat for the second skill.
+
+For the full skill package, including detailed reference material, use Local Plugin Install above or [Manual Install](#manual-install).
 
 ### Standalone Skills
 
