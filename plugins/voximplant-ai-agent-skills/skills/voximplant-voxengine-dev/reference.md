@@ -93,7 +93,7 @@ Code-level debugging should use platform evidence when available:
 5. Look first for listener ordering, missing cleanup, unhandled hangups, missing secrets, provider/WebSocket failures, invalid event payload assumptions, and nonexistent VoxEngine APIs.
 6. Make the smallest scenario fix and ask the user to test again.
 
-If the user does not have the Management API skill, ask them to provide it or approve fetching the public package after publication: `https://github.com/voximplant/voximplant-ai-agent-skills`.
+If the user does not have the Management API skill, ask them to provide it or approve fetching the public package after publication: `https://github.com/voximplant/ai-agent-skills`.
 
 ## Hallucination Guardrails
 

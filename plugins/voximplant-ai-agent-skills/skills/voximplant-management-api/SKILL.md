@@ -116,7 +116,7 @@ Before performing Management API work:
 
 Switch to or request `voximplant-voxengine-dev` when the task requires scenario authoring, code review, runtime event ordering, or code-level debugging. If the user does not have that skill, ask them to provide it or ask permission to fetch the public skill package after it is published:
 
-- `https://github.com/voximplant/voximplant-ai-agent-skills`
+- `https://github.com/voximplant/ai-agent-skills`
 - the Voximplant docs skill catalog page when available
 
 Keep the boundary clear:

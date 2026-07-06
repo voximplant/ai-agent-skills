@@ -7,7 +7,7 @@
     "url": "https://voximplant.com"
   },
   "homepage": "https://docs.voximplant.ai",
-  "repository": "https://github.com/voximplant/voximplant-ai-agent-skills",
+  "repository": "https://github.com/voximplant/ai-agent-skills",
   "license": "Apache-2.0",
   "keywords": ["voximplant", "voxengine", "voice-ai", "management-api", "agent-skills"],
   "skills": "./skills/",
