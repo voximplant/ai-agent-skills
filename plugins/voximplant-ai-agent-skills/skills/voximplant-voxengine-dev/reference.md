@@ -42,6 +42,18 @@ Search docs by these concepts instead of guessing method names:
 - secret storage
 - application users and SDK authentication
 - scenario troubleshooting and limits
+- Model Context Protocol client for in-scenario tool calling to external servers (`require(Modules.MCP)`)
+
+## Model Context Protocol Client Notes
+
+`MCP.Client` is a VoxEngine AI-connector module for voice scenarios. It is **not** the documentation integration endpoint and not a platform-management integration.
+
+Before using it:
+
+1. Search docs for `MCP Client` and verify `MCP.Client`, `MCP.ServerEvents`, `listTools`, and `callTool`.
+2. Confirm the scenario loads the module with `require(Modules.MCP)`.
+3. Treat remote server responses as-is. The client does not post-process tool results; the scenario must parse and act on the returned payload.
+4. Wire tool calls into the broader Voice AI flow explicitly. The client does not replace connector-specific tool handling by itself.
 
 ## Type Declaration Use
 

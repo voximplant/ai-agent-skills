@@ -27,10 +27,11 @@ const forbiddenNamePatterns = [
 ];
 
 const forbiddenContentPatterns = [
-  /\bMCP\b/,
-  /_mcp/i,
+  /_mcp\/server/i,
   /searchDocs/,
   /Fern MCP/i,
+  /docs MCP server/i,
+  /platform-management MCP/i,
 ];
 
 const errors = [];

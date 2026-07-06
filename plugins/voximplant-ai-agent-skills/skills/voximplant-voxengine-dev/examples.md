@@ -95,6 +95,33 @@ Next, test it with a real call.
 - If the call behaves differently than expected, tell me what happened in plain language. I will pull the logs through the Management API skill and debug the scenario from evidence.
 ```
 
+## SIP Calls Between Voximplant Applications
+
+When the user wants to call from one Voximplant application into another over SIP:
+
+1. Confirm the target application domain: `<app>.<account>.voximplant.com`.
+2. Build `finalDestination` as `destination@targetApplicationDomain`.
+3. Use a domain-style `callerid`, not a bare username.
+4. In the target application, handle the inbound leg in `AppEvents.CallAlerting` and branch on how the scenario routes the call.
+
+Pattern:
+
+```js
+const finalDestination = `${destination}@${targetApplicationDomain}`;
+const outCall = VoxEngine.callSIP(finalDestination, {
+  callerid: `${callerid}@example.com`,
+  headers,
+});
+```
+
+Rules:
+
+- Do **not** prefix `sip:` in `finalDestination`. `VoxEngine.callSIP` appends the destination to the configured SIP URI internally.
+- Use a domain-style `callerid` such as `user@example.com`. For inter-application SIP, bare usernames can break proxy auth or routing.
+- In the target application, the inbound SIP call usually arrives in `AppEvents.CallAlerting` with `VI-Client-Type` other than `user` or `pstn`. `event.destination` is the user-part before `@`.
+- If the target scenario only does `call.answer()` behind a catch-all rule such as `.*`, `destination` can be any routing marker.
+- If the target scenario calls `VoxEngine.callUser({ username: destination })`, `destination` must be an existing application user.
+
 ## Handoff To Management API Logs
 
 When a call fails:
@@ -137,6 +164,8 @@ Good documentation searches:
 - `VoxEngine WebSocket external audio streaming`
 - `VoxEngine secrets API scenario`
 - `VoxEngine limits WebSocket connections`
+- `VoxEngine MCP Client listTools callTool`
+- `VoxEngine callSIP inter-application destination`
 
 Avoid broad queries like:
 
