@@ -131,7 +131,10 @@ After deployment, offer a test call. If the user has no phone number, offer a no
 1. Create or reuse a Voximplant application user after approval.
 2. Generate a strong temporary password.
 3. Store test credentials in an ignored local `.env` only after the user approves, or print the variable names and ask the user to fill values.
-4. Give the user softphone login instructions and the expected test behavior. Tell them what to enter in `Enter destination`: for a call inside the same application, any value is enough, for example `1`.
+4. Give the user softphone login instructions and the expected test behavior.
+   - The softphone Sign In form at `https://phone.voximplant.com/` has **four separate fields**: `Username`, `Password`, `Application name`, and `Account name`.
+   - Always provide all four values as distinct fields mapped to those labels. Do **not** give one combined login string such as `user@app/account`, `user@account/app`, a SIP URI, or any other concatenated format.
+   - Tell the user what to enter in `Enter destination`: for a call inside the same application, any value is enough, for example `1`.
 5. Ask the user to place a call and report what happened.
 
 When the user reports a failed call:

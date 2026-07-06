@@ -91,6 +91,7 @@ After scenario code is ready:
 Next, test it with a real call.
 - If you already have a number or SIP setup, call the route you configured.
 - If you do not have a number, I can use the Management API skill to create an application user and give you instructions for https://phone.voximplant.com/.
+  The softphone Sign In form needs four separate fields: Username, Password, Application name, and Account name. I will provide all four values separately, not as one combined login string.
 - If the call behaves differently than expected, tell me what happened in plain language. I will pull the logs through the Management API skill and debug the scenario from evidence.
 ```
 

@@ -135,7 +135,16 @@ With your approval I will:
 - confirm the routing path to the scenario
 - store test credentials in an ignored `.env` or provide variables for you to fill
 
-Then you can log in to the softphone and place the test call.
+Then log in to the softphone and place the test call.
+The Sign In form has four separate fields — provide each value on its own line, not as one combined login string:
+
+Username: [application user name]
+Password: [user password]
+Application name: [application name]
+Account name: [account name]
+
+Do not use concatenated formats such as user@app/account or user@account/app.
+
 For `Enter destination`, use the real destination if the route expects one. For a call inside the same application, type any simple value, for example `1`.
 ```
 
@@ -145,6 +154,7 @@ Use clear variable names:
 VOXIMPLANT_SOFTPHONE_USER=
 VOXIMPLANT_SOFTPHONE_PASSWORD=
 VOXIMPLANT_APPLICATION_NAME=
+VOXIMPLANT_ACCOUNT_NAME=
 ```
 
 ## Phone Number Verification Warning
