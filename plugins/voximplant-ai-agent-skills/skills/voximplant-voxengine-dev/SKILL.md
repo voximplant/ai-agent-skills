@@ -154,5 +154,8 @@ Use these docs as entry points:
 - Secrets: `https://docs.voximplant.ai/platform/voxengine/secrets.md`
 - Limits: `https://docs.voximplant.ai/platform/voxengine/limits.md`
 - Troubleshooting: `https://docs.voximplant.ai/platform/voxengine/troubleshooting.md`
+- Model Context Protocol client (in-scenario tool calling): `https://docs.voximplant.ai/api-reference/voxengine/mcp/llms.txt`
+- MCP.Client API: `https://docs.voximplant.ai/api-reference/voxengine/mcp/client.md`
+- MCP.ServerEvents: `https://docs.voximplant.ai/api-reference/voxengine/mcp/serverevents.md`
 
 For fuller guidance, read `reference.md`. For prompt and code patterns, read `examples.md`.
